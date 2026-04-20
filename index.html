@@ -3,382 +3,301 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ritual Exprés: Piel Nueva en 60 Minutos — Berke Spa × DSS</title>
+  <title>Limpieza Facial Fácil — Berke Spa × Deutsche Schule Santiago</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:          #F5F0EB;
-      --surface:     #FFFFFF;
-      --surface-warm:#FAF7F3;
-      --primary:     #3D4F3A;
-      --primary-dk:  #2E3D2B;
-      --secondary:   #C17F5E;
-      --secondary-dk:#A86B4C;
-      --accent:      #B8956A;
-      --text:        #2A2622;
-      --muted:       #9C948A;
-      --border:      #E6DFD6;
-      --botanical:   #8FA67A;
-      --dss-blue:    #1B7BAD;
+      --bg:       #F5F0EB;
+      --surface:  #FFFFFF;
+      --warm:     #FAF7F3;
+      --green:    #3D4F3A;
+      --green-dk: #2E3D2B;
+      --terra:    #C17F5E;
+      --terra-dk: #A86B4C;
+      --gold:     #B8956A;
+      --text:     #2A2622;
+      --muted:    #9C948A;
+      --border:   #E6DFD6;
+      --sage:     #8FA67A;
+      --dss:      #1B7BAD;
     }
 
     html { scroll-behavior: smooth; }
+
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Sora', sans-serif;
-      min-height: 100vh;
-      max-width: 430px;
+      max-width: 480px;
       margin: 0 auto;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Flag stripe ── */
-    .flag-stripe { display: flex; height: 4px; }
-    .flag-stripe .s1 { flex:1; background:#1A1A1A; }
-    .flag-stripe .s2 { flex:1; background:#DD0000; }
-    .flag-stripe .s3 { flex:1; background:#FFCE00; }
+    /* ─── GERMAN FLAG ─── */
+    .flag { display: flex; height: 5px; }
+    .flag .f1 { flex:1; background:#1a1a1a; }
+    .flag .f2 { flex:1; background:#cc0000; }
+    .flag .f3 { flex:1; background:#ffce00; }
 
-    /* ── DSS Header ── */
-    .dss-header {
-      background: var(--dss-blue);
-      padding: 18px 24px;
+    /* ─── DSS STRIP ─── */
+    .dss-strip {
+      background: var(--dss);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .dss-logo-row {
-      display: flex;
-      align-items: center;
+      justify-content: center;
       gap: 10px;
+      padding: 12px 20px;
     }
 
-    .dss-name-block .ds-mark {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: rgba(255,255,255,.55);
-      text-transform: uppercase;
-    }
-
-    .dss-name-block .ds-full {
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: .3px;
-      line-height: 1.2;
-    }
-
-    .dss-convenio-badge {
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 9999px;
-      font-size: 10px;
+    .dss-strip-text {
+      font-size: 11px;
       font-weight: 600;
       color: rgba(255,255,255,.9);
-      padding: 4px 10px;
-      white-space: nowrap;
-      letter-spacing: .5px;
+      letter-spacing: .8px;
+      text-transform: uppercase;
     }
 
-    /* ── Urgency bar ── */
-    .urgency-bar {
-      background: #2A2622;
-      padding: 10px 20px;
+    .dss-strip-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.4);
+      flex-shrink: 0;
+    }
+
+    /* ─── URGENCY ─── */
+    .urgency {
+      background: #1a1a1a;
       text-align: center;
+      padding: 9px 20px;
       font-size: 12px;
       font-weight: 600;
-      color: #FFCE00;
+      color: #ffce00;
       letter-spacing: .3px;
     }
+    .urgency span { color: rgba(255,255,255,.6); font-weight: 400; }
 
-    .urgency-bar span {
-      color: rgba(255,255,255,.7);
-      font-weight: 400;
-    }
-
-    /* ── Hero ── */
+    /* ─── HERO ─── */
     .hero {
-      background: var(--primary);
-      padding: 40px 28px 80px;
-      text-align: center;
       position: relative;
+      height: 520px;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
-    .hero::before {
-      content: '';
+    .hero-img {
       position: absolute;
-      top: -40px; right: -40px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(184,149,106,.2) 0%, transparent 70%);
-      pointer-events: none;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
-    .hero::after {
-      content: '';
+    .hero-overlay {
       position: absolute;
-      bottom: -30px; left: -30px;
-      width: 150px; height: 150px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(143,166,122,.15) 0%, transparent 70%);
-      pointer-events: none;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(30,24,20,.15) 0%,
+        rgba(30,24,20,.05) 30%,
+        rgba(30,24,20,.6) 65%,
+        rgba(30,24,20,.92) 100%
+      );
     }
 
-    .berke-logo {
-      margin-bottom: 24px;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 28px 36px;
     }
 
-    .berke-logo img {
-      height: 44px;
+    .hero-logo {
+      margin-bottom: 20px;
+    }
+
+    .hero-logo img {
+      height: 36px;
       width: auto;
       filter: brightness(0) invert(1);
-      opacity: .9;
+      opacity: .85;
     }
 
     .hero-eyebrow {
-      display: inline-block;
-      border: 1px solid rgba(184,149,106,.45);
-      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(184,149,106,.5);
       border-radius: 9999px;
+      padding: 4px 12px;
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      padding: 5px 14px;
-      margin-bottom: 18px;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .hero-eyebrow-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
     }
 
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(34px, 9vw, 48px);
-      font-weight: 500;
+      font-size: 48px;
+      font-weight: 400;
       color: #fff;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      line-height: 1.05;
+      margin-bottom: 14px;
+      letter-spacing: -.5px;
     }
 
     .hero h1 em {
       font-style: italic;
-      color: var(--accent);
+      color: var(--gold);
     }
 
-    .hero-sub {
+    .hero-desc {
       font-size: 14px;
-      color: rgba(255,255,255,.72);
+      font-weight: 300;
+      color: rgba(255,255,255,.78);
       line-height: 1.65;
-      max-width: 300px;
-      margin: 0 auto;
+      max-width: 290px;
     }
 
-    /* ── Transformation card ── */
-    .transform-card {
+    /* ─── PRICE BLOCK ─── */
+    .price-block {
       background: var(--surface);
-      border-radius: 24px;
-      margin: -44px 16px 0;
-      padding: 28px 22px 24px;
-      box-shadow: 0 12px 48px rgba(42,38,34,.13);
-      position: relative;
-      z-index: 2;
-    }
-
-    .transform-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .transform-grid {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .state-box {
-      background: var(--surface-warm);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 10px;
-      text-align: center;
-    }
-
-    .state-box .state-icon { font-size: 22px; margin-bottom: 6px; }
-    .state-box .state-title {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .8px;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-    .state-box .state-desc {
-      font-size: 12px;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    .state-box.after {
-      background: linear-gradient(135deg, #f0f7f0, #e8f4e8);
-      border-color: var(--botanical);
-    }
-
-    .state-box.after .state-title { color: var(--primary); }
-    .state-box.after .state-desc { color: var(--primary); font-weight: 500; }
-
-    .arrow-divider {
-      font-size: 20px;
-      color: var(--accent);
-      text-align: center;
-    }
-
-    .time-badge {
-      background: var(--accent);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .5px;
-      border-radius: 9999px;
-      padding: 5px 14px;
-      text-align: center;
-      width: fit-content;
-      margin: 0 auto;
-    }
-
-    /* ── Price section ── */
-    .price-section {
-      padding: 28px 16px 0;
-    }
-
-    .price-card {
-      background: var(--surface);
+      margin: 0 16px;
+      margin-top: -32px;
       border-radius: 20px;
-      padding: 24px 22px;
-      border: 2px solid var(--border);
+      padding: 28px 24px 24px;
+      box-shadow: 0 16px 56px rgba(42,38,34,.14);
       position: relative;
-      overflow: hidden;
+      z-index: 3;
     }
 
-    .price-card::before {
+    .price-block::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--botanical), var(--accent));
+      top: 0; left: 24px; right: 24px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--sage), var(--gold));
+      border-radius: 9999px;
     }
 
-    .dss-pill {
-      display: flex;
+    .exclusive-pill {
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: #EBF4FA;
-      border: 1px solid #B8D9EE;
-      border-radius: 10px;
-      padding: 8px 12px;
+      gap: 6px;
+      background: #e8f3fa;
+      border: 1px solid #b8d8ee;
+      border-radius: 8px;
+      padding: 7px 11px;
       margin-bottom: 20px;
+      width: 100%;
     }
 
-    .dss-pill .pill-dot {
+    .exclusive-pill-dot {
       width: 7px; height: 7px;
       border-radius: 50%;
-      background: var(--dss-blue);
+      background: var(--dss);
       flex-shrink: 0;
     }
 
-    .dss-pill span {
-      font-size: 12px;
+    .exclusive-pill span {
+      font-size: 11.5px;
       font-weight: 600;
-      color: var(--dss-blue);
+      color: var(--dss);
       line-height: 1.3;
     }
 
-    .price-anchor {
-      text-align: center;
+    .price-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 14px;
       margin-bottom: 6px;
     }
 
-    .price-regular {
-      font-size: 16px;
+    .price-was {
+      font-size: 22px;
+      font-weight: 400;
       color: var(--muted);
       text-decoration: line-through;
-      font-weight: 500;
+      padding-bottom: 8px;
+      font-family: 'Cormorant Garamond', serif;
     }
 
-    .price-saving {
-      display: inline-block;
-      background: #FFF3CD;
-      border: 1px solid #FFE08A;
-      color: #7A5C00;
+    .price-now {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .price-save {
+      background: #fff8e6;
+      border: 1px solid #f0d88a;
+      color: #7a5a00;
       font-size: 11px;
       font-weight: 700;
       border-radius: 9999px;
-      padding: 2px 10px;
-      margin-left: 8px;
-    }
-
-    .price-main {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(52px, 14vw, 68px);
-      font-weight: 600;
-      color: var(--primary);
+      padding: 3px 10px;
       text-align: center;
-      line-height: 1;
-      margin-bottom: 4px;
+      width: fit-content;
+      margin: 0 auto 6px;
     }
 
     .price-note {
-      font-size: 11px;
+      font-size: 11.5px;
       color: var(--muted);
       text-align: center;
     }
 
-    /* ── Value stack ── */
-    .value-stack {
-      margin-top: 20px;
+    /* ─── STACK ─── */
+    .stack {
+      margin-top: 22px;
+      padding-top: 20px;
       border-top: 1px solid var(--border);
-      padding-top: 18px;
     }
 
-    .value-title {
+    .stack-label {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
-    .value-item {
+    .stack-row {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
+      gap: 10px;
+      margin-bottom: 12px;
     }
 
-    .value-item-left {
+    .stack-left {
       display: flex;
       align-items: flex-start;
       gap: 10px;
       flex: 1;
     }
 
-    .check {
-      width: 18px; height: 18px;
+    .stack-check {
+      width: 20px; height: 20px;
       border-radius: 50%;
-      background: var(--botanical);
+      background: var(--sage);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -386,277 +305,326 @@
       margin-top: 1px;
     }
 
-    .check svg {
+    .stack-check svg {
       width: 10px; height: 10px;
-      fill: #fff;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .value-text {
+    .stack-info { flex: 1; }
+
+    .stack-name {
       font-size: 13px;
+      font-weight: 600;
       color: var(--text);
+      line-height: 1.3;
+    }
+
+    .stack-desc {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 2px;
       line-height: 1.4;
     }
 
-    .value-text strong { font-weight: 600; }
-    .value-text small {
-      display: block;
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 1px;
-    }
-
-    .value-price {
+    .stack-price {
       font-size: 12px;
-      font-weight: 700;
-      color: var(--muted);
+      font-weight: 600;
+      color: #c0b5ac;
       text-decoration: line-through;
-      white-space: nowrap;
       flex-shrink: 0;
-      margin-top: 2px;
+      padding-top: 2px;
     }
 
-    .value-total {
+    .stack-total {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 14px;
       padding-top: 12px;
+      margin-top: 8px;
       border-top: 1px dashed var(--border);
     }
 
-    .value-total-label {
+    .stack-total-label {
       font-size: 12px;
-      font-weight: 600;
       color: var(--muted);
+      font-weight: 500;
     }
 
-    .value-total-price {
+    .stack-total-val {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 600;
+      font-size: 20px;
       color: var(--muted);
       text-decoration: line-through;
+      font-weight: 500;
     }
 
-    /* ── Guarantee ── */
+    /* ─── GUARANTEE ─── */
     .guarantee {
       margin: 16px 16px 0;
-      background: linear-gradient(135deg, #f0f7f0, #e8f4e8);
-      border: 1px solid var(--botanical);
+      background: #f0f7f0;
+      border: 1px solid #c8e0c8;
       border-radius: 16px;
       padding: 18px 18px;
       display: flex;
-      align-items: flex-start;
       gap: 14px;
+      align-items: flex-start;
     }
 
-    .guarantee-icon {
-      font-size: 28px;
-      flex-shrink: 0;
-    }
+    .guarantee-icon { font-size: 26px; flex-shrink: 0; }
 
     .guarantee-title {
       font-size: 13px;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--green);
       margin-bottom: 4px;
     }
 
-    .guarantee-text {
+    .guarantee-body {
       font-size: 12px;
-      color: var(--primary);
-      line-height: 1.5;
-      opacity: .85;
+      color: #4a6048;
+      line-height: 1.55;
     }
 
-    /* ── CTA ── */
-    .cta-wrap { padding: 20px 16px 0; }
+    /* ─── CTA ─── */
+    .cta-section { padding: 20px 16px 0; }
 
     .cta-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 11px;
       width: 100%;
-      background: var(--secondary);
+      background: var(--terra);
       color: #fff;
       font-family: 'Sora', sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       border: none;
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 20px 24px;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 8px 28px rgba(193,127,94,.35);
-      transition: background .15s, transform .1s;
+      box-shadow: 0 8px 32px rgba(193,127,94,.38);
+      letter-spacing: .2px;
+      transition: background .15s, transform .1s, box-shadow .15s;
     }
 
     .cta-btn:active {
-      background: var(--secondary-dk);
-      transform: scale(.98);
+      background: var(--terra-dk);
+      transform: scale(.985);
+      box-shadow: 0 4px 16px rgba(193,127,94,.25);
     }
 
     .cta-btn svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
 
-    .cta-sub {
+    .cta-micro {
       text-align: center;
       font-size: 11px;
       color: var(--muted);
-      margin-top: 8px;
+      margin-top: 9px;
+      letter-spacing: .2px;
     }
 
-    /* ── Benefits ── */
-    .benefits-section {
-      padding: 28px 16px 0;
+    /* ─── DIVIDER ─── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 30px 20px 0;
     }
 
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 16px;
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
-    .benefit-grid {
+    .section-divider-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ─── BENEFITS ─── */
+    .benefits { padding: 20px 16px 0; }
+
+    .benefits-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .benefit-chip {
+    .benefit-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 14px;
+      border-radius: 16px;
+      padding: 18px 16px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .benefit-chip .b-word {
+    .benefit-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--sage), transparent);
+    }
+
+    .benefit-word {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 600;
-      color: var(--primary);
+      color: var(--green);
       display: block;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
-    .benefit-chip .b-desc {
-      font-size: 11px;
+    .benefit-desc {
+      font-size: 11.5px;
       color: var(--muted);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
-    /* ── Social proof ── */
-    .proof-section {
-      padding: 24px 16px 0;
+    /* ─── TESTIMONIAL ─── */
+    .testimonial-section { padding: 20px 16px 0; }
+
+    .testimonial-card {
+      background: var(--green);
+      border-radius: 20px;
+      padding: 26px 22px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .proof-card {
-      background: var(--surface);
-      border-radius: 18px;
-      padding: 20px 18px;
-      border: 1px solid var(--border);
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px; right: 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      color: rgba(255,255,255,.07);
+      line-height: 1;
+      pointer-events: none;
     }
 
-    .proof-header {
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-style: italic;
+      color: rgba(255,255,255,.92);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-author {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 12px;
     }
 
-    .proof-avatar {
-      width: 36px; height: 36px;
+    .testimonial-avatar {
+      width: 34px; height: 34px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--botanical), var(--primary));
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      flex-shrink: 0;
+      color: #fff;
     }
 
-    .proof-meta { flex: 1; }
-    .proof-name { font-size: 13px; font-weight: 600; color: var(--text); }
-    .proof-location { font-size: 11px; color: var(--muted); }
-    .stars { color: var(--accent); font-size: 13px; letter-spacing: 2px; }
-
-    .quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.55;
+    .testimonial-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
     }
 
-    /* ── Credibility ── */
-    .cred-section {
-      padding: 24px 16px 0;
+    .testimonial-location {
+      font-size: 11px;
+      color: rgba(255,255,255,.55);
     }
+
+    /* ─── CREDIBILITY ─── */
+    .cred-section { padding: 20px 16px 0; }
 
     .cred-card {
-      background: var(--primary);
-      border-radius: 18px;
+      background: var(--warm);
+      border: 1px solid var(--border);
+      border-radius: 20px;
       padding: 22px 20px;
-      color: #fff;
     }
 
-    .cred-label {
+    .cred-title {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: rgba(255,255,255,.5);
-      margin-bottom: 12px;
+      color: var(--muted);
+      margin-bottom: 16px;
     }
 
-    .cred-stat {
+    .cred-row {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 11px;
     }
 
-    .cred-stat .stat-dot {
+    .cred-dot {
       width: 6px; height: 6px;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--gold);
       flex-shrink: 0;
+      margin-top: 5px;
     }
 
-    .cred-stat .stat-text {
-      font-size: 14px;
-      color: rgba(255,255,255,.88);
-      line-height: 1.4;
+    .cred-text {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.45;
     }
 
-    .cred-stat .stat-text strong { color: #fff; }
+    .cred-text strong { font-weight: 600; }
 
     .cred-tagline {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: 17px;
       font-style: italic;
-      color: var(--accent);
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      line-height: 1.4;
+      color: var(--gold);
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      line-height: 1.45;
     }
 
-    /* ── FAQ strip ── */
-    .faq-section {
-      padding: 24px 16px 0;
-    }
+    /* ─── FAQ ─── */
+    .faq-section { padding: 20px 16px 0; }
 
     .faq-item {
       background: var(--surface);
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin-bottom: 8px;
       border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px 16px;
+      margin-bottom: 8px;
     }
 
     .faq-q {
@@ -667,222 +635,185 @@
     }
 
     .faq-a {
-      font-size: 12px;
+      font-size: 12.5px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    /* ── Final CTA ── */
-    .final-cta {
-      padding: 24px 16px 0;
-    }
+    /* ─── FINAL CTA ─── */
+    .final-section { padding: 24px 16px 0; }
 
-    .final-cta .cta-heading {
+    .final-heading {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 500;
+      font-size: 32px;
+      font-weight: 400;
       color: var(--text);
       text-align: center;
+      line-height: 1.15;
       margin-bottom: 6px;
     }
 
-    .final-cta .cta-heading em {
+    .final-heading em {
       font-style: italic;
-      color: var(--secondary);
+      color: var(--terra);
     }
 
-    .final-cta .cta-p {
+    .final-sub {
       font-size: 13px;
       color: var(--muted);
       text-align: center;
       margin-bottom: 16px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    /* ── Berke footer ── */
-    .berke-footer {
+    /* ─── FOOTER ─── */
+    .site-footer {
       text-align: center;
-      padding: 28px 16px 12px;
+      padding: 28px 20px 44px;
     }
 
-    .berke-footer img {
-      height: 24px;
+    .footer-logo img {
+      height: 22px;
       width: auto;
       filter: grayscale(1);
-      opacity: .35;
+      opacity: .3;
+      margin-bottom: 12px;
     }
 
-    footer {
-      text-align: center;
+    .footer-text {
       font-size: 11px;
       color: var(--muted);
-      padding: 8px 20px 40px;
-      line-height: 1.9;
+      line-height: 2;
       letter-spacing: .3px;
     }
 
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+    /* ─── ANIMATIONS ─── */
+    @keyframes up {
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .transform-card { animation: fadeUp .45s ease-out .08s both; }
-    .price-section  { animation: fadeUp .45s ease-out .15s both; }
-    .guarantee      { animation: fadeUp .45s ease-out .2s both; }
-    .cta-wrap       { animation: fadeUp .45s ease-out .22s both; }
+    .price-block  { animation: up .5s ease-out .1s both; }
+    .guarantee    { animation: up .5s ease-out .18s both; }
+    .cta-section  { animation: up .5s ease-out .22s both; }
   </style>
 </head>
 <body>
 
   <!-- Flag -->
-  <div class="flag-stripe">
-    <span class="s1"></span><span class="s2"></span><span class="s3"></span>
+  <div class="flag"><span class="f1"></span><span class="f2"></span><span class="f3"></span></div>
+
+  <!-- DSS partnership strip -->
+  <div class="dss-strip">
+    <span class="dss-strip-text">Deutsche Schule Santiago</span>
+    <span class="dss-strip-dot"></span>
+    <span class="dss-strip-text">Convenio exclusivo</span>
   </div>
 
-  <!-- DSS Header -->
-  <div class="dss-header">
-    <div class="dss-logo-row">
-      <!-- Eagle SVG -->
-      <svg width="34" height="38" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="21" cy="28" rx="7" ry="10" fill="white"/>
-        <ellipse cx="21" cy="14" rx="5" ry="5.5" fill="white"/>
-        <path d="M21 17 L24 20 L21 19.5Z" fill="white"/>
-        <path d="M21 20 C14 18 4 22 1 17 C6 15 12 16 21 22Z" fill="white"/>
-        <path d="M1 17 C3 14 6 13 9 15" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M3 15 C5 11 8 10 11 13" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M6 13 C8 9 12 9 14 12" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M21 20 C28 18 38 22 41 17 C36 15 30 16 21 22Z" fill="white"/>
-        <path d="M41 17 C39 14 36 13 33 15" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M39 15 C37 11 34 10 31 13" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M36 13 C34 9 30 9 28 12" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M16 37 L14 44 M18 38 L17 45 M21 38.5 L21 46 M24 38 L25 45 M26 37 L28 44" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-        <text x="21" y="27" font-family="Sora, sans-serif" font-size="6" font-weight="700" fill="#1B7BAD" text-anchor="middle">DS</text>
-      </svg>
-      <div class="dss-name-block">
-        <div class="ds-mark">Deutsche Schule</div>
-        <div class="ds-full">Santiago</div>
-      </div>
-    </div>
-    <div class="dss-convenio-badge">Convenio exclusivo</div>
-  </div>
+  <!-- Urgency -->
+  <div class="urgency">⚡ Solo 10 cupos disponibles <span>para la comunidad DSS</span></div>
 
-  <!-- Urgency bar -->
-  <div class="urgency-bar">
-    ⚡ Solo 10 cupos disponibles <span>para la comunidad DSS</span>
-  </div>
-
-  <!-- Hero -->
+  <!-- Hero with real Berke imagery -->
   <div class="hero">
-    <div class="berke-logo">
-      <img
-        src="https://berkespa.cl/wp-content/uploads/2023/03/cropped-B06E1853-2A55-4047-9612-691CCA0C87DF-1.png"
-        alt="Berke Spa"
-        onerror="this.style.display='none'"
-      />
+    <img
+      class="hero-img"
+      src="https://berkespa.cl/wp-content/uploads/elementor/thumbs/woman-enjoying-massage-q0y6r0dpgars7ssgcvu0xtb71d3zyyr41xvw6lz7ng.jpg"
+      alt="Tratamiento facial Berke Spa"
+    />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-logo">
+        <img
+          src="https://berkespa.cl/wp-content/uploads/2023/03/cropped-B06E1853-2A55-4047-9612-691CCA0C87DF-1.png"
+          alt="Berke Spa"
+          onerror="this.style.display='none'"
+        />
+      </div>
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Tratamiento Facial · Limpieza Fácil
+      </div>
+      <h1>Piel limpia,<br>luminosa<br><em>en 60 min.</em></h1>
+      <p class="hero-desc">Consigue una piel purificada, hidratada y con brillo natural. Resultados visibles desde el primer tratamiento.</p>
     </div>
-    <div class="hero-eyebrow">Ritual Exprés · Tratamiento Facial</div>
-    <h1>Piel limpia,<br>luminosa<br><em>en 60 minutos.</em></h1>
-    <p class="hero-sub">Un tratamiento facial profesional diseñado para que consigas una piel purificada, hidratada y con brillo natural — sin complicaciones.</p>
   </div>
 
-  <!-- Transformation card -->
-  <div class="transform-card">
-    <div class="transform-label">Tu transformación</div>
-    <div class="transform-grid">
-      <div class="state-box">
-        <div class="state-icon">😔</div>
-        <div class="state-title">Antes</div>
-        <div class="state-desc">Piel opaca, puntos negros, poros obstruidos</div>
-      </div>
-      <div class="arrow-divider">→</div>
-      <div class="state-box after">
-        <div class="state-icon">✨</div>
-        <div class="state-title">Después</div>
-        <div class="state-desc">Piel limpia, luminosa e hidratada</div>
-      </div>
+  <!-- Price block -->
+  <div class="price-block">
+    <div class="exclusive-pill">
+      <span class="exclusive-pill-dot"></span>
+      <span>Precio especial · Comunidad Deutsche Schule Santiago</span>
     </div>
-    <div class="time-badge">Resultado visible ese mismo día</div>
-  </div>
 
-  <!-- Price section -->
-  <div class="price-section">
-    <div class="price-card">
-      <div class="dss-pill">
-        <div class="pill-dot"></div>
-        <span>Precio exclusivo para la comunidad Deutsche Schule Santiago</span>
+    <div class="price-row">
+      <span class="price-was">$80.000</span>
+      <span class="price-now">$25.990</span>
+    </div>
+    <div class="price-save">Ahorras $54.010 — 67% menos</div>
+    <div class="price-note">Pago al finalizar · Transferencia o efectivo</div>
+
+    <!-- Value stack -->
+    <div class="stack">
+      <div class="stack-label">Todo lo que incluye</div>
+
+      <div class="stack-row">
+        <div class="stack-left">
+          <div class="stack-check"><svg viewBox="0 0 12 9"><polyline points="1.5,4.5 4.5,7.5 10.5,1.5"/></svg></div>
+          <div class="stack-info">
+            <div class="stack-name">Diagnóstico de piel</div>
+            <div class="stack-desc">Evaluación personalizada pre-tratamiento</div>
+          </div>
+        </div>
+        <div class="stack-price">$15.000</div>
       </div>
 
-      <div class="price-anchor">
-        <span class="price-regular">$80.000</span>
-        <span class="price-saving">Ahorras $54.010</span>
+      <div class="stack-row">
+        <div class="stack-left">
+          <div class="stack-check"><svg viewBox="0 0 12 9"><polyline points="1.5,4.5 4.5,7.5 10.5,1.5"/></svg></div>
+          <div class="stack-info">
+            <div class="stack-name">Limpieza facial profunda</div>
+            <div class="stack-desc">Con extracción de impurezas y puntos negros</div>
+          </div>
+        </div>
+        <div class="stack-price">$40.000</div>
       </div>
-      <div class="price-main">$25.990</div>
-      <div class="price-note">Pago al finalizar · Transferencia o efectivo</div>
 
-      <!-- Value stack -->
-      <div class="value-stack">
-        <div class="value-title">Todo lo que incluye tu tratamiento</div>
-
-        <div class="value-item">
-          <div class="value-item-left">
-            <div class="check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-            <div class="value-text">
-              <strong>Diagnóstico de piel</strong>
-              <small>Evaluación personalizada antes del tratamiento</small>
-            </div>
+      <div class="stack-row">
+        <div class="stack-left">
+          <div class="stack-check"><svg viewBox="0 0 12 9"><polyline points="1.5,4.5 4.5,7.5 10.5,1.5"/></svg></div>
+          <div class="stack-info">
+            <div class="stack-name">Mascarilla hidratante</div>
+            <div class="stack-desc">Nutre y repara la barrera cutánea</div>
           </div>
-          <div class="value-price">$15.000</div>
         </div>
+        <div class="stack-price">$20.000</div>
+      </div>
 
-        <div class="value-item">
-          <div class="value-item-left">
-            <div class="check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-            <div class="value-text">
-              <strong>Limpieza facial profunda</strong>
-              <small>Con extracción de impurezas y puntos negros</small>
-            </div>
+      <div class="stack-row">
+        <div class="stack-left">
+          <div class="stack-check"><svg viewBox="0 0 12 9"><polyline points="1.5,4.5 4.5,7.5 10.5,1.5"/></svg></div>
+          <div class="stack-info">
+            <div class="stack-name">Masaje facial relajante</div>
+            <div class="stack-desc">Activa la circulación y da luminosidad</div>
           </div>
-          <div class="value-price">$40.000</div>
         </div>
+        <div class="stack-price">$20.000</div>
+      </div>
 
-        <div class="value-item">
-          <div class="value-item-left">
-            <div class="check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-            <div class="value-text">
-              <strong>Mascarilla hidratante</strong>
-              <small>Nutre y repara la barrera cutánea</small>
-            </div>
+      <div class="stack-row">
+        <div class="stack-left">
+          <div class="stack-check"><svg viewBox="0 0 12 9"><polyline points="1.5,4.5 4.5,7.5 10.5,1.5"/></svg></div>
+          <div class="stack-info">
+            <div class="stack-name">Productos especializados</div>
+            <div class="stack-desc">Aplicados por profesional certificada</div>
           </div>
-          <div class="value-price">$20.000</div>
         </div>
+        <div class="stack-price">$15.000</div>
+      </div>
 
-        <div class="value-item">
-          <div class="value-item-left">
-            <div class="check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-            <div class="value-text">
-              <strong>Masaje facial relajante</strong>
-              <small>Activa la circulación y brinda luminosidad</small>
-            </div>
-          </div>
-          <div class="value-price">$20.000</div>
-        </div>
-
-        <div class="value-item">
-          <div class="value-item-left">
-            <div class="check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-            <div class="value-text">
-              <strong>Productos especializados</strong>
-              <small>Aplicados por profesional certificada</small>
-            </div>
-          </div>
-          <div class="value-price">$15.000</div>
-        </div>
-
-        <div class="value-total">
-          <div class="value-total-label">Valor total del stack</div>
-          <div class="value-total-price">$110.000</div>
-        </div>
+      <div class="stack-total">
+        <span class="stack-total-label">Valor total del stack</span>
+        <span class="stack-total-val">$110.000</span>
       </div>
     </div>
   </div>
@@ -892,97 +823,89 @@
     <div class="guarantee-icon">🛡️</div>
     <div>
       <div class="guarantee-title">Garantía de satisfacción total</div>
-      <div class="guarantee-text">Si no quedas conforme con el resultado, repetimos el tratamiento sin costo. Tu satisfacción es nuestra responsabilidad.</div>
+      <div class="guarantee-body">Si no quedas conforme con el resultado, repetimos el tratamiento sin costo. Tu satisfacción es nuestra responsabilidad.</div>
     </div>
   </div>
 
-  <!-- CTA principal -->
-  <div class="cta-wrap">
+  <!-- CTA -->
+  <div class="cta-section">
     <a
       class="cta-btn"
       href="https://wa.me/56XXXXXXXXX?text=Hola%2C%20soy%20de%20la%20Deutsche%20Schule%20Santiago%20y%20quiero%20reservar%20mi%20Limpieza%20F%C3%A1cil%20por%20%2425.990%20%F0%9F%8C%BF"
-      target="_blank"
-      rel="noopener"
+      target="_blank" rel="noopener"
     >
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Quiero reservar mi cupo
     </a>
-    <div class="cta-sub">Respuesta inmediata · Sin formularios · Sin compromiso</div>
+    <div class="cta-micro">Respuesta inmediata · Sin formularios · Sin compromiso</div>
   </div>
 
-  <!-- Benefits grid -->
-  <div class="benefits-section">
-    <div class="section-title">Lo que hace el tratamiento</div>
-    <div class="benefit-grid">
-      <div class="benefit-chip">
-        <span class="b-word">Purifica.</span>
-        <span class="b-desc">Elimina impurezas y toxinas acumuladas.</span>
+  <!-- Benefits -->
+  <div class="section-divider"><span class="section-divider-text">Beneficios del tratamiento</span></div>
+
+  <div class="benefits">
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="benefit-word">Purifica.</span>
+        <span class="benefit-desc">Elimina impurezas y toxinas acumuladas en la piel.</span>
       </div>
-      <div class="benefit-chip">
-        <span class="b-word">Hidrata.</span>
-        <span class="b-desc">Nutre la piel en profundidad.</span>
+      <div class="benefit-card">
+        <span class="benefit-word">Hidrata.</span>
+        <span class="benefit-desc">Nutre la piel en profundidad desde los poros.</span>
       </div>
-      <div class="benefit-chip">
-        <span class="b-word">Oxigena.</span>
-        <span class="b-desc">Reactiva la circulación del rostro.</span>
+      <div class="benefit-card">
+        <span class="benefit-word">Oxigena.</span>
+        <span class="benefit-desc">Reactiva la circulación del rostro.</span>
       </div>
-      <div class="benefit-chip">
-        <span class="b-word">Ilumina.</span>
-        <span class="b-desc">Brinda luminosidad y textura suave.</span>
+      <div class="benefit-card">
+        <span class="benefit-word">Ilumina.</span>
+        <span class="benefit-desc">Brinda luminosidad y textura suave y tersa.</span>
       </div>
     </div>
   </div>
 
-  <!-- Social proof -->
-  <div class="proof-section">
-    <div class="proof-card">
-      <div class="proof-header">
-        <div class="proof-avatar">M</div>
-        <div class="proof-meta">
-          <div class="proof-name">Martina R.</div>
-          <div class="proof-location">Vitacura · comunidad DSS</div>
+  <!-- Testimonial -->
+  <div class="section-divider"><span class="section-divider-text">Lo que dicen</span></div>
+
+  <div class="testimonial-section">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+      <div class="testimonial-quote">"Mi piel quedó limpia, hidratada y luminosa. Se nota la diferencia desde el primer tratamiento."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">M</div>
+        <div>
+          <div class="testimonial-name">Martina R.</div>
+          <div class="testimonial-location">Vitacura · Comunidad DSS</div>
         </div>
-        <div class="stars">★★★★★</div>
       </div>
-      <div class="quote">"Mi piel quedó limpia, hidratada y luminosa. Se nota la diferencia desde el primer tratamiento. ¡Un servicio increíble al mejor precio!"</div>
     </div>
   </div>
 
   <!-- Credibility -->
+  <div class="section-divider"><span class="section-divider-text">Por qué Berke Spa</span></div>
+
   <div class="cred-section">
     <div class="cred-card">
-      <div class="cred-label">Por qué confiar en Berke Spa</div>
-      <div class="cred-stat">
-        <div class="stat-dot"></div>
-        <div class="stat-text"><strong>+15 años de experiencia</strong> en estética integral</div>
-      </div>
-      <div class="cred-stat">
-        <div class="stat-dot"></div>
-        <div class="stat-text">Formación y perfeccionamiento <strong>en Alemania y Chile</strong></div>
-      </div>
-      <div class="cred-stat">
-        <div class="stat-dot"></div>
-        <div class="stat-text">Profesionales en <strong>constante capacitación</strong></div>
-      </div>
-      <div class="cred-stat">
-        <div class="stat-dot"></div>
-        <div class="stat-text">Ubicados en <strong>Av. Vitacura 5900</strong>, piso -1</div>
-      </div>
+      <div class="cred-title">Más de 15 años de experiencia</div>
+      <div class="cred-row"><div class="cred-dot"></div><div class="cred-text">Formación y perfeccionamiento <strong>en Alemania y Chile</strong></div></div>
+      <div class="cred-row"><div class="cred-dot"></div><div class="cred-text">Profesionales en <strong>constante capacitación</strong></div></div>
+      <div class="cred-row"><div class="cred-dot"></div><div class="cred-text">Tratamiento estético <strong>no invasivo de primer nivel</strong></div></div>
+      <div class="cred-row"><div class="cred-dot"></div><div class="cred-text">Ubicados en <strong>Av. Vitacura 5900</strong>, piso -1, consulta 03</div></div>
       <div class="cred-tagline">"Porque verse bien,<br>es igual a sentirse bien."</div>
     </div>
   </div>
 
   <!-- FAQ -->
+  <div class="section-divider"><span class="section-divider-text">Preguntas frecuentes</span></div>
+
   <div class="faq-section">
     <div class="faq-item">
       <div class="faq-q">¿Para quién es este tratamiento?</div>
-      <div class="faq-a">Para cualquier tipo de piel. Ideal si tienes poros obstruidos, piel opaca o simplemente quieres un reset facial.</div>
+      <div class="faq-a">Para cualquier tipo de piel. Ideal si tienes poros obstruidos, piel opaca, acné o simplemente quieres un reset facial.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">¿Cuánto dura el tratamiento?</div>
-      <div class="faq-a">Aproximadamente 60 minutos, incluyendo el diagnóstico inicial.</div>
+      <div class="faq-a">Aproximadamente 60 minutos, incluyendo el diagnóstico inicial de piel.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">¿Cómo reservo mi cupo?</div>
@@ -991,39 +914,34 @@
   </div>
 
   <!-- Final CTA -->
-  <div class="final-cta">
-    <div class="cta-heading">¿Lista para tu<br><em>piel nueva?</em></div>
-    <div class="cta-p">Solo 10 cupos disponibles al precio de convenio DSS.<br>Reserva el tuyo ahora.</div>
+  <div class="section-divider"><span class="section-divider-text"></span></div>
+
+  <div class="final-section">
+    <div class="final-heading">¿Lista para tu<br><em>piel nueva?</em></div>
+    <div class="final-sub">Solo 10 cupos al precio de convenio DSS.<br>Reserva el tuyo ahora — sin compromiso.</div>
     <a
       class="cta-btn"
       href="https://wa.me/56XXXXXXXXX?text=Hola%2C%20soy%20de%20la%20Deutsche%20Schule%20Santiago%20y%20quiero%20reservar%20mi%20Limpieza%20F%C3%A1cil%20por%20%2425.990%20%F0%9F%8C%BF"
-      target="_blank"
-      rel="noopener"
+      target="_blank" rel="noopener"
     >
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Reservar mi cupo ahora
     </a>
-    <div class="cta-sub" style="margin-top:8px;">Respuesta inmediata · Sin formularios · Sin compromiso</div>
+    <div class="cta-micro" style="margin-top:9px;">Respuesta inmediata · Sin formularios · Sin compromiso</div>
   </div>
 
-  <!-- Berke footer -->
-  <div class="berke-footer">
-    <img
-      src="https://berkespa.cl/wp-content/uploads/2023/03/cropped-B06E1853-2A55-4047-9612-691CCA0C87DF-1.png"
-      alt="Berke Spa"
-    />
+  <!-- Footer -->
+  <div class="site-footer">
+    <div class="footer-logo">
+      <img src="https://berkespa.cl/wp-content/uploads/2023/03/cropped-B06E1853-2A55-4047-9612-691CCA0C87DF-1.png" alt="Berke Spa" />
+    </div>
+    <div class="footer-text">
+      Berke Spa · Av. Vitacura 5900, piso -1, consulta 03<br>
+      Convenio válido para la comunidad Deutsche Schule Santiago
+    </div>
   </div>
 
-  <footer>
-    Berke Spa · Av. Vitacura 5900, piso -1, consulta 03<br>
-    Convenio válido para la comunidad Deutsche Schule Santiago
-  </footer>
-
-  <div class="flag-stripe">
-    <span class="s1"></span><span class="s2"></span><span class="s3"></span>
-  </div>
+  <div class="flag"><span class="f1"></span><span class="f2"></span><span class="f3"></span></div>
 
 </body>
 </html>
