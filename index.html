@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Limpieza Fácil — $25.990</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      min-height: 100vh;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0055a5 0%, #003d7a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 48px 24px 56px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 4px 14px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 7vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: #ffd60a;
+    }
+
+    .hero p {
+      font-size: 17px;
+      opacity: .88;
+      max-width: 320px;
+      margin: 0 auto 28px;
+      line-height: 1.5;
+    }
+
+    /* ── Price card ── */
+    .price-wrap {
+      margin: -32px 20px 0;
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      text-align: center;
+    }
+
+    .price-label {
+      font-size: 13px;
+      color: #6e6e73;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 6px;
+    }
+
+    .price {
+      font-size: clamp(38px, 10vw, 52px);
+      font-weight: 800;
+      color: #0055a5;
+      line-height: 1;
+    }
+
+    .price-note {
+      font-size: 13px;
+      color: #6e6e73;
+      margin-top: 4px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e5e5ea;
+      margin: 20px 0;
+    }
+
+    /* ── What's included ── */
+    .includes {
+      text-align: left;
+    }
+
+    .includes-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: #6e6e73;
+      margin-bottom: 12px;
+    }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .item .icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── CTA ── */
+    .cta-wrap {
+      padding: 28px 20px 0;
+    }
+
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: #25d366;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      border: none;
+      border-radius: 14px;
+      padding: 18px 24px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s, transform .1s;
+    }
+
+    .cta-btn:active {
+      background: #1da851;
+      transform: scale(.98);
+    }
+
+    .cta-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+      flex-shrink: 0;
+    }
+
+    /* ── Trust strip ── */
+    .trust {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 24px 20px 16px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #6e6e73;
+      text-align: center;
+    }
+
+    .trust-item .t-icon {
+      font-size: 22px;
+    }
+
+    /* ── Social proof ── */
+    .proof {
+      margin: 0 20px 32px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    }
+
+    .proof-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #6e6e73;
+      margin-bottom: 14px;
+    }
+
+    .testimonial {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #1d1d1f;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-author {
+      font-size: 13px;
+      color: #6e6e73;
+      font-weight: 600;
+    }
+
+    .stars {
+      color: #ff9f0a;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aeaeb2;
+      padding: 0 20px 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge">Oferta exclusiva · Centro de Alumnos</div>
+    <h1>Tu espacio<br><span>impecable</span><br>sin complicaciones</h1>
+    <p>Limpieza profesional, rápida y sin que tengas que preocuparte de nada.</p>
+  </div>
+
+  <!-- Price card -->
+  <div class="price-wrap">
+    <div class="price-label">Precio especial</div>
+    <div class="price">$25.990</div>
+    <div class="price-note">Pago al finalizar el servicio · Transferencia o efectivo</div>
+
+    <hr class="divider" />
+
+    <div class="includes">
+      <div class="includes-title">¿Qué incluye?</div>
+      <div class="item"><span class="icon">🧹</span><span>Limpieza completa de pisos y superficies</span></div>
+      <div class="item"><span class="icon">🪣</span><span>Baños desinfectados a fondo</span></div>
+      <div class="item"><span class="icon">🗑️</span><span>Retiro y eliminación de basura</span></div>
+      <div class="item"><span class="icon">✨</span><span>Limpieza de cocina y mesones</span></div>
+      <div class="item"><span class="icon">⚡</span><span>Servicio express — listo en pocas horas</span></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <a
+      class="cta-btn"
+      href="https://wa.me/56XXXXXXXXX?text=Hola%2C%20me%20interesa%20la%20limpieza%20por%20%2425.990%20del%20Centro%20de%20Alumnos%20%F0%9F%A7%B9"
+      target="_blank"
+      rel="noopener"
+    >
+      <!-- WhatsApp icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Pedir por WhatsApp
+    </a>
+  </div>
+
+  <!-- Trust strip -->
+  <div class="trust">
+    <div class="trust-item"><span class="t-icon">🔒</span>Sin contrato</div>
+    <div class="trust-item"><span class="t-icon">📅</span>Agenda flexible</div>
+    <div class="trust-item"><span class="t-icon">💯</span>Garantía de satisfacción</div>
+  </div>
+
+  <!-- Social proof -->
+  <div class="proof">
+    <div class="proof-title">Lo que dicen nuestros clientes</div>
+    <div class="stars">★★★★★</div>
+    <div class="testimonial">"Quedó todo impecable y en tiempo récord. Lo recomiendo 100%."</div>
+    <div class="testimonial-author">— Martina R., Vitacura</div>
+  </div>
+
+  <footer>
+    Servicio disponible en Vitacura y comunas aledañas<br>
+    Precios en pesos chilenos · IVA incluido
+  </footer>
+
+</body>
+</html>
