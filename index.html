@@ -3,127 +3,163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Limpieza Fácil — $25.990</title>
+  <title>Limpieza Profesional — $25.990</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #F5F0EB;
+      --surface:    #FFFFFF;
+      --surface-warm: #FAF7F3;
+      --primary:    #3D4F3A;
+      --primary-dk: #2E3D2B;
+      --secondary:  #C17F5E;
+      --secondary-dk: #A86B4C;
+      --accent:     #B8956A;
+      --text:       #2A2622;
+      --muted:      #9C948A;
+      --border:     #E6DFD6;
+      --botanical:  #8FA67A;
+    }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Sora', sans-serif;
       min-height: 100vh;
     }
 
     /* ── Hero ── */
     .hero {
-      background: linear-gradient(135deg, #0055a5 0%, #003d7a 100%);
-      color: #fff;
+      background: var(--primary);
+      padding: 52px 24px 72px;
       text-align: center;
-      padding: 48px 24px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(184,149,106,.18) 0%, transparent 65%);
+      pointer-events: none;
     }
 
     .badge {
       display: inline-block;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 999px;
-      font-size: 13px;
+      border: 1px solid rgba(184,149,106,.5);
+      color: var(--accent);
+      border-radius: 9999px;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: .5px;
-      padding: 4px 14px;
-      margin-bottom: 20px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
+      padding: 5px 16px;
+      margin-bottom: 24px;
     }
 
     .hero h1 {
-      font-size: clamp(28px, 7vw, 42px);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 9vw, 52px);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
 
-    .hero h1 span {
-      color: #ffd60a;
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
     }
 
     .hero p {
-      font-size: 17px;
-      opacity: .88;
-      max-width: 320px;
-      margin: 0 auto 28px;
-      line-height: 1.5;
+      font-size: 15px;
+      color: rgba(255,255,255,.72);
+      max-width: 300px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
     /* ── Price card ── */
-    .price-wrap {
-      margin: -32px 20px 0;
-      background: #fff;
-      border-radius: 20px;
-      padding: 28px 24px 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.12);
-      text-align: center;
+    .card {
+      background: var(--surface);
+      border-radius: 24px;
+      margin: -40px 20px 0;
+      padding: 32px 24px 28px;
+      box-shadow: 0 8px 40px rgba(42,38,34,.10);
+      position: relative;
+      z-index: 1;
     }
 
     .price-label {
-      font-size: 13px;
-      color: #6e6e73;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      letter-spacing: .5px;
+      color: var(--muted);
       margin-bottom: 6px;
+      text-align: center;
     }
 
     .price {
-      font-size: clamp(38px, 10vw, 52px);
-      font-weight: 800;
-      color: #0055a5;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 13vw, 64px);
+      font-weight: 600;
+      color: var(--primary);
+      text-align: center;
       line-height: 1;
     }
 
     .price-note {
-      font-size: 13px;
-      color: #6e6e73;
-      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 6px;
     }
 
     .divider {
       border: none;
-      border-top: 1px solid #e5e5ea;
-      margin: 20px 0;
+      border-top: 1px solid var(--border);
+      margin: 24px 0;
     }
 
-    /* ── What's included ── */
-    .includes {
-      text-align: left;
-    }
-
-    .includes-title {
-      font-size: 12px;
+    /* ── Includes list ── */
+    .list-title {
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      letter-spacing: .6px;
-      color: #6e6e73;
-      margin-bottom: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
     }
 
     .item {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 10px;
-      font-size: 15px;
-      line-height: 1.4;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text);
     }
 
-    .item .icon {
-      font-size: 18px;
+    .item-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--botanical);
       flex-shrink: 0;
-      margin-top: 1px;
+      margin-top: 6px;
     }
 
     /* ── CTA ── */
-    .cta-wrap {
-      padding: 28px 20px 0;
-    }
+    .cta-wrap { padding: 28px 20px 0; }
 
     .cta-btn {
       display: flex;
@@ -131,26 +167,29 @@
       justify-content: center;
       gap: 10px;
       width: 100%;
-      background: #25d366;
+      background: var(--secondary);
       color: #fff;
-      font-size: 17px;
-      font-weight: 700;
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
       border: none;
       border-radius: 14px;
       padding: 18px 24px;
       cursor: pointer;
       text-decoration: none;
-      transition: background .15s, transform .1s;
+      box-shadow: 0 8px 24px rgba(193,127,94,.30);
+      transition: background .15s, transform .1s, box-shadow .15s;
     }
 
     .cta-btn:active {
-      background: #1da851;
+      background: var(--secondary-dk);
       transform: scale(.98);
+      box-shadow: 0 4px 12px rgba(193,127,94,.20);
     }
 
     .cta-btn svg {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       fill: #fff;
       flex-shrink: 0;
     }
@@ -159,70 +198,112 @@
     .trust {
       display: flex;
       justify-content: center;
-      gap: 24px;
-      padding: 24px 20px 16px;
-      flex-wrap: wrap;
+      gap: 0;
+      padding: 28px 20px 24px;
     }
 
     .trust-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
-      font-size: 12px;
-      color: #6e6e73;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex: 1;
       text-align: center;
     }
 
-    .trust-item .t-icon {
-      font-size: 22px;
+    .trust-item:not(:last-child) {
+      border-right: 1px solid var(--border);
     }
 
-    /* ── Social proof ── */
+    .trust-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--surface-warm);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    /* ── Testimonial ── */
     .proof {
-      margin: 0 20px 32px;
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      margin: 0 20px 12px;
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 22px 20px;
+      border: 1px solid var(--border);
     }
 
-    .proof-title {
-      font-size: 13px;
+    .proof-label {
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      letter-spacing: .5px;
-      color: #6e6e73;
+      color: var(--muted);
       margin-bottom: 14px;
     }
 
-    .testimonial {
-      font-size: 15px;
-      line-height: 1.5;
-      color: #1d1d1f;
-      font-style: italic;
-      margin-bottom: 8px;
+    .stars {
+      color: var(--accent);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
     }
 
-    .testimonial-author {
-      font-size: 13px;
-      color: #6e6e73;
+    .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .quote-author {
+      font-size: 12px;
+      color: var(--muted);
       font-weight: 600;
     }
 
-    .stars {
-      color: #ff9f0a;
-      font-size: 15px;
-      margin-bottom: 6px;
+    /* ── Accent line ── */
+    .accent-line {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 28px;
     }
 
     /* ── Footer ── */
     footer {
       text-align: center;
-      font-size: 12px;
-      color: #aeaeb2;
-      padding: 0 20px 40px;
+      font-size: 11px;
+      letter-spacing: .5px;
+      color: var(--muted);
+      padding: 16px 20px 48px;
+      line-height: 1.8;
     }
+
+    /* ── Fade-in animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card, .cta-wrap, .trust, .proof {
+      animation: fadeUp .5s ease-out both;
+    }
+    .card     { animation-delay: .1s; }
+    .cta-wrap { animation-delay: .2s; }
+    .trust    { animation-delay: .3s; }
+    .proof    { animation-delay: .35s; }
   </style>
 </head>
 <body>
@@ -230,26 +311,25 @@
   <!-- Hero -->
   <div class="hero">
     <div class="badge">Oferta exclusiva · Centro de Alumnos</div>
-    <h1>Tu espacio<br><span>impecable</span><br>sin complicaciones</h1>
-    <p>Limpieza profesional, rápida y sin que tengas que preocuparte de nada.</p>
+    <h1>Tu espacio,<br><em>impecable.</em></h1>
+    <p>Limpieza profesional sin complicaciones. Rápida, confiable y al mejor precio.</p>
   </div>
 
   <!-- Price card -->
-  <div class="price-wrap">
+  <div class="card">
     <div class="price-label">Precio especial</div>
     <div class="price">$25.990</div>
-    <div class="price-note">Pago al finalizar el servicio · Transferencia o efectivo</div>
+    <div class="price-note">Pago al finalizar · Transferencia o efectivo · IVA incluido</div>
 
     <hr class="divider" />
 
-    <div class="includes">
-      <div class="includes-title">¿Qué incluye?</div>
-      <div class="item"><span class="icon">🧹</span><span>Limpieza completa de pisos y superficies</span></div>
-      <div class="item"><span class="icon">🪣</span><span>Baños desinfectados a fondo</span></div>
-      <div class="item"><span class="icon">🗑️</span><span>Retiro y eliminación de basura</span></div>
-      <div class="item"><span class="icon">✨</span><span>Limpieza de cocina y mesones</span></div>
-      <div class="item"><span class="icon">⚡</span><span>Servicio express — listo en pocas horas</span></div>
-    </div>
+    <div class="list-title">¿Qué incluye?</div>
+
+    <div class="item"><div class="item-dot"></div><span>Limpieza completa de pisos y superficies</span></div>
+    <div class="item"><div class="item-dot"></div><span>Baños desinfectados a fondo</span></div>
+    <div class="item"><div class="item-dot"></div><span>Retiro y eliminación de basura</span></div>
+    <div class="item"><div class="item-dot"></div><span>Limpieza de cocina y mesones</span></div>
+    <div class="item"><div class="item-dot"></div><span>Servicio express — listo en pocas horas</span></div>
   </div>
 
   <!-- CTA -->
@@ -260,7 +340,6 @@
       target="_blank"
       rel="noopener"
     >
-      <!-- WhatsApp icon -->
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
       </svg>
@@ -270,22 +349,33 @@
 
   <!-- Trust strip -->
   <div class="trust">
-    <div class="trust-item"><span class="t-icon">🔒</span>Sin contrato</div>
-    <div class="trust-item"><span class="t-icon">📅</span>Agenda flexible</div>
-    <div class="trust-item"><span class="t-icon">💯</span>Garantía de satisfacción</div>
+    <div class="trust-item">
+      <div class="trust-icon">🔒</div>
+      Sin contrato
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">📅</div>
+      Flexible
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💯</div>
+      Garantizado
+    </div>
   </div>
 
-  <!-- Social proof -->
+  <!-- Testimonial -->
   <div class="proof">
-    <div class="proof-title">Lo que dicen nuestros clientes</div>
-    <div class="stars">★★★★★</div>
-    <div class="testimonial">"Quedó todo impecable y en tiempo récord. Lo recomiendo 100%."</div>
-    <div class="testimonial-author">— Martina R., Vitacura</div>
+    <div class="proof-label">Lo que dicen</div>
+    <div class="stars">★ ★ ★ ★ ★</div>
+    <div class="quote">"Quedó todo impecable y en tiempo récord. Lo recomiendo al 100%."</div>
+    <div class="quote-author">— Martina R., Vitacura</div>
   </div>
+
+  <div class="accent-line"></div>
 
   <footer>
-    Servicio disponible en Vitacura y comunas aledañas<br>
-    Precios en pesos chilenos · IVA incluido
+    Disponible en Vitacura y comunas aledañas<br>
+    Colegio Alemán de Vitacura · Oferta exclusiva
   </footer>
 
 </body>
