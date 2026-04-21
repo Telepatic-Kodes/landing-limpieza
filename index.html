@@ -3,253 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Limpieza Facial — Berke Spa · Convenio DSS</title>
+  <title>Limpieza Facial · Berke Spa × DSS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --green:  #3D4F3A;
-      --terra:  #C17F5E;
-      --gold:   #B8956A;
-      --bg:     #F5F0EB;
-      --text:   #1A1A1A;
-      --muted:  #7A7A7A;
-      --border: #E8E2DA;
-      --dss:    #1B7BAD;
-    }
-
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: #F5F0EB;
+      color: #1A1A1A;
       font-family: 'Sora', sans-serif;
-      max-width: 480px;
+      max-width: 420px;
       margin: 0 auto;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Flag */
     .flag { display: flex; height: 4px; }
     .flag span:nth-child(1) { flex:1; background:#111; }
     .flag span:nth-child(2) { flex:1; background:#CC0000; }
     .flag span:nth-child(3) { flex:1; background:#FFCC00; }
 
-    /* DSS Bar */
     .dss-bar {
-      background: var(--dss);
-      padding: 10px 20px;
+      background: #1B7BAD;
+      padding: 9px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .dss-bar-name {
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255,255,255,.9);
-    }
-    .dss-bar-badge {
-      font-size: 10px;
-      font-weight: 700;
-      color: rgba(255,255,255,.7);
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
+    .dss-bar span { font-size: 11px; font-weight: 600; color: rgba(255,255,255,.9); }
+    .dss-bar em { font-style: normal; font-size: 10px; color: rgba(255,255,255,.6); }
 
-    /* Hero */
     .hero {
       position: relative;
       background: #111;
-      overflow: hidden;
     }
-    .hero-img {
+    .hero img {
       width: 100%;
-      height: 400px;
+      height: 320px;
       object-fit: cover;
       object-position: center 20%;
       display: block;
-      opacity: .7;
+      opacity: .65;
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.8) 100%);
+      background: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,.85) 100%);
     }
     .hero-logo {
       position: absolute;
-      top: 18px;
-      left: 20px;
+      top: 16px; left: 18px;
     }
     .hero-logo img {
-      height: 28px;
+      height: 26px;
       filter: brightness(0) invert(1);
       opacity: .85;
     }
-    .hero-content {
+    .hero-text {
       position: absolute;
-      bottom: 0;
-      left: 0; right: 0;
-      padding: 0 22px 26px;
+      bottom: 0; left: 0; right: 0;
+      padding: 0 20px 22px;
     }
-    .hero h1 {
-      font-size: 36px;
+    .hero-text h1 {
+      font-size: 30px;
       font-weight: 700;
       color: #fff;
-      line-height: 1.1;
-      margin-bottom: 8px;
+      line-height: 1.15;
+      margin-bottom: 6px;
     }
-    .hero h1 em {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 44px;
-      font-weight: 500;
-      color: #FFCC00;
-    }
-    .hero-sub {
-      font-size: 13px;
+    .hero-text p {
+      font-size: 12.5px;
       color: rgba(255,255,255,.7);
-      line-height: 1.55;
     }
 
-    /* Price block */
-    .price-block {
+    .card {
       background: #fff;
-      margin: -20px 16px 0;
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      margin: -18px 14px 0;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.1);
       position: relative;
       z-index: 2;
+    }
+    .price-row {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
+      margin-bottom: 14px;
     }
     .price-was {
-      font-size: 13px;
-      color: var(--muted);
+      font-size: 12px;
+      color: #999;
       text-decoration: line-through;
       margin-bottom: 2px;
     }
     .price-now {
-      font-size: 44px;
+      font-size: 40px;
       font-weight: 700;
-      color: var(--green);
+      color: #3D4F3A;
       line-height: 1;
-      letter-spacing: -1.5px;
+      letter-spacing: -1px;
     }
-    .price-label {
+    .price-note {
       font-size: 11px;
-      color: var(--muted);
-      margin-top: 3px;
-    }
-    .price-tag {
-      background: var(--green);
-      color: #fff;
-      font-size: 11px;
+      color: #3D4F3A;
       font-weight: 600;
-      border-radius: 10px;
-      padding: 8px 12px;
-      text-align: center;
+      text-align: right;
       line-height: 1.4;
     }
 
-    /* CTA */
-    .cta-wrap { padding: 14px 16px 0; }
-    .cta-btn {
+    .includes {
+      font-size: 12px;
+      color: #555;
+      line-height: 2;
+      border-top: 1px solid #F0EBE4;
+      padding-top: 12px;
+      margin-bottom: 14px;
+    }
+    .includes span {
+      display: inline-block;
+      margin-right: 6px;
+      color: #3D4F3A;
+      font-weight: 600;
+    }
+
+    .cta {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 9px;
       width: 100%;
       background: #25D366;
       color: #fff;
       font-size: 15px;
       font-weight: 700;
-      border: none;
-      border-radius: 14px;
-      padding: 17px;
+      border-radius: 12px;
+      padding: 15px;
       text-decoration: none;
-      box-shadow: 0 4px 18px rgba(37,211,102,.3);
+      box-shadow: 0 4px 14px rgba(37,211,102,.3);
     }
-    .cta-btn svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
-    .cta-micro {
-      text-align: center;
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 8px;
-    }
+    .cta svg { width: 18px; height: 18px; fill: #fff; }
 
-    /* Includes */
-    .section { padding: 28px 16px 0; }
-    .section-title {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-    .include-list {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .include-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border);
-    }
-    .include-item:last-child { border-bottom: none; }
-    .include-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      flex-shrink: 0;
-    }
-    .include-text {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      flex: 1;
-    }
-    .include-note {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    /* About */
-    .about-block {
-      margin: 14px 16px 0;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 18px;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .about-block strong { color: var(--text); }
-
-    /* Footer */
     .footer {
       text-align: center;
-      padding: 32px 20px 48px;
-    }
-    .footer img {
-      height: 18px;
-      filter: grayscale(1);
-      opacity: .25;
-      display: block;
-      margin: 0 auto 10px;
-    }
-    .footer-text {
+      padding: 16px 20px 36px;
       font-size: 11px;
-      color: var(--muted);
-      line-height: 1.9;
+      color: #aaa;
+      line-height: 1.8;
     }
   </style>
 </head>
@@ -258,83 +158,50 @@
   <div class="flag"><span></span><span></span><span></span></div>
 
   <div class="dss-bar">
-    <span class="dss-bar-name">Deutsche Schule Santiago</span>
-    <span class="dss-bar-badge">Convenio especial</span>
+    <span>Deutsche Schule Santiago</span>
+    <em>Convenio especial</em>
   </div>
 
   <div class="hero">
-    <img class="hero-img"
-      src="https://images.pexels.com/photos/6476073/pexels-photo-6476073.jpeg?auto=compress&cs=tinysrgb&w=800"
-      alt="Estudiante cuidando su piel"
-    />
+    <img src="https://images.pexels.com/photos/6476073/pexels-photo-6476073.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" />
     <div class="hero-overlay"></div>
     <div class="hero-logo">
       <img src="https://berkespa.cl/wp-content/uploads/2023/03/cropped-B06E1853-2A55-4047-9612-691CCA0C87DF-1.png"
         alt="Berke Spa" onerror="this.style.display='none'" />
     </div>
-    <div class="hero-content">
-      <h1>Limpieza facial<br><em>profesional.</em></h1>
-      <p class="hero-sub">Extracción, mascarilla hidratante y masaje facial. 60 minutos, resultados ese mismo día.</p>
+    <div class="hero-text">
+      <h1>Limpieza facial<br>profesional</h1>
+      <p>60 minutos · Vitacura</p>
     </div>
   </div>
 
-  <div class="price-block">
-    <div>
-      <div class="price-was">Precio regular $80.000</div>
-      <div class="price-now">$25.990</div>
-      <div class="price-label">Precio exclusivo comunidad DSS</div>
+  <div class="card">
+    <div class="price-row">
+      <div>
+        <div class="price-was">$80.000</div>
+        <div class="price-now">$25.990</div>
+      </div>
+      <div class="price-note">Precio exclusivo<br>comunidad DSS</div>
     </div>
-    <div class="price-tag">60 min<br>Un solo pago</div>
-  </div>
 
-  <div class="cta-wrap">
-    <a class="cta-btn"
+    <div class="includes">
+      <span>✓</span>Diagnóstico de piel<br>
+      <span>✓</span>Limpieza profunda + extracción<br>
+      <span>✓</span>Mascarilla hidratante<br>
+      <span>✓</span>Masaje facial<br>
+      <span>✓</span>Rutina para casa
+    </div>
+
+    <a class="cta"
       href="https://wa.me/56XXXXXXXXX?text=Hola%2C%20soy%20de%20la%20Deutsche%20Schule%20y%20quiero%20reservar%20la%20Limpieza%20Facial%20por%20%2425.990"
       target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Reservar por WhatsApp
     </a>
-    <div class="cta-micro">Sin formularios · Respuesta inmediata</div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Qué incluye</div>
-    <div class="include-list">
-      <div class="include-item">
-        <div class="include-dot"></div>
-        <div class="include-text">Diagnóstico de piel</div>
-      </div>
-      <div class="include-item">
-        <div class="include-dot"></div>
-        <div class="include-text">Limpieza profunda con extracción</div>
-      </div>
-      <div class="include-item">
-        <div class="include-dot"></div>
-        <div class="include-text">Mascarilla hidratante</div>
-      </div>
-      <div class="include-item">
-        <div class="include-dot"></div>
-        <div class="include-text">Masaje facial</div>
-      </div>
-      <div class="include-item">
-        <div class="include-dot"></div>
-        <div class="include-text">Rutina de mantención</div>
-        <div class="include-note">Para casa</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="about-block">
-    Atención por <strong>profesional certificada con más de 15 años de experiencia</strong> en Alemania y Chile.<br>
-    Av. Vitacura 5900, piso -1, consulta 03.
   </div>
 
   <div class="footer">
-    <img src="https://berkespa.cl/wp-content/uploads/2023/03/cropped-B06E1853-2A55-4047-9612-691CCA0C87DF-1.png" alt="Berke Spa" />
-    <div class="footer-text">
-      Berke Spa<br>
-      Convenio válido para la comunidad Deutsche Schule Santiago
-    </div>
+    Berke Spa · Av. Vitacura 5900, piso -1, consulta 03
   </div>
 
   <div class="flag"><span></span><span></span><span></span></div>
