@@ -120,9 +120,39 @@
       padding-top: 12px;
       margin-bottom: 14px;
     }
-    .includes span {
-      display: inline-block;
-      margin-right: 6px;
+    .includes li {
+      list-style: none;
+      padding-left: 14px;
+      position: relative;
+    }
+    .includes li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #3D4F3A;
+    }
+
+    .berke-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-top: 1px solid #F0EBE4;
+      padding-top: 14px;
+      margin-bottom: 14px;
+    }
+    .berke-logo img {
+      height: 28px;
+    }
+    .berke-logo-text {
+      font-size: 11px;
+      color: #999;
+      line-height: 1.5;
+    }
+    .berke-logo-text strong {
+      display: block;
+      font-size: 12px;
       color: #3D4F3A;
       font-weight: 600;
     }
@@ -184,12 +214,21 @@
       <div class="price-note">Precio exclusivo<br>comunidad DSS</div>
     </div>
 
-    <div class="includes">
-      <span>✓</span>Diagnóstico de piel<br>
-      <span>✓</span>Limpieza profunda + extracción<br>
-      <span>✓</span>Mascarilla hidratante<br>
-      <span>✓</span>Masaje facial<br>
-      <span>✓</span>Rutina para casa
+    <ul class="includes">
+      <li>Diagnóstico de piel</li>
+      <li>Limpieza profunda + extracción</li>
+      <li>Mascarilla hidratante</li>
+      <li>Masaje facial</li>
+      <li>Rutina para casa</li>
+    </ul>
+
+    <div class="berke-logo">
+      <img src="https://berkespa.cl/wp-content/uploads/2023/03/cropped-B06E1853-2A55-4047-9612-691CCA0C87DF-1.png"
+        alt="Berke Spa" onerror="this.style.display='none'" />
+      <div class="berke-logo-text">
+        <strong>Berke Spa</strong>
+        Av. Vitacura 5900, piso -1
+      </div>
     </div>
 
     <a class="cta"
@@ -201,7 +240,7 @@
   </div>
 
   <div class="footer">
-    Berke Spa · Av. Vitacura 5900, piso -1, consulta 03
+    Convenio válido para la comunidad Deutsche Schule Santiago
   </div>
 
   <div class="flag"><span></span><span></span><span></span></div>
